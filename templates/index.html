@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake news detector</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        span.p_text {
+          display: inline-block;
+          width: 100px;
+          font-size: large;
+          font-weight: bold;
+          color:brown;
+          height: 100px;
+          padding: 10px;
+          margin-left:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 text-left">
+            <h1>Fake news detector</h1>
+            <hr>
+
+            <p class="container border-left">Predict whether the message (english) is real or fake</p>
+            <br>
+            <br>
+
+            <h5>Enter message: </h5>
+            <form action="{{ url_for('predict') }}" method="post">
+                <div class="form-group">
+                    <textarea id="message" class="form-control" name="message" rows="4" cols="50" required></textarea><br>
+                    <button id='btn1' type="submit" class="btn btn-lg btn-primary">Predict</button>
+                </div>
+            </form>
+            <br>
+            <br>
+
+            <div id="s" class="alert alert-success" role="alert" style="display:inline">The news is: </div>
+            <span class="p_text">-{{prediction_value}}-</span>
+            {{error}}
+
+            <div class="col-2"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
